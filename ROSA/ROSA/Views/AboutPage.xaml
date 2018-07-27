@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ROSA.Views.AboutPage"
+             xmlns:vm="clr-namespace:ROSA.ViewModels"
+             Title="{Binding Title}">
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <!--Page Level Resources: Compatibile with Xamarin Live Player -->
+            <!--Buton Background -->
+            <Color x:Key="Primary">#f24721</Color>
+            <!--Logo Rengi -->
+            <Color x:Key="Accent">#2196F3</Color>
+            <!-- Yazı Rengi -->
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="{StaticResource Accent}" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="rosa_wallpaper.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="16,40,16,40" Spacing="10">
+                <Label FontSize="22">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ROSA" FontAttributes="Bold" FontSize="22" />
+                                <Span Text=" " />
+                                <Span Text="0.1" ForegroundColor="{StaticResource LightTextColor}" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label>
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="ROSA uygulaması içerik olarak risale-i nurları yazı formatında yükleme sistemin bu yazı formatını sesli sohbete çevrimi veyahut sesli sohbet yükleme sonrası sistemin bu sesli sohbeti yazılı formata çevrimi olarak ve her hafta açılan tartışma konularına fikir beyan etmeleri olarak düşündük.
+Derin Konuların analizi anlaşır hale gelmesi bilgili abilerin yorumları ile daha anlaşılır hale gelmesi temel fikir.
+Sesli sohbeti yazıya dökme olsun yazılı sohbeti sese çevirme olsun 2 sindede biri database kayıt birinde ftp ile servera kayıt yapılcak.
+Yazılı veya Sesli(görüntülü) sohbetin kullanıcı tarafından sisteme alınması ( admin paneli )
+Sisteme alındıktan sonra belli bir process den geçirilmesi (yazılıyı sese, sesliyi yazılıya cevirme SDK ile ) ve ihtiyac duyulan kelime veya örneklendirmelerin belirlenmesi ve yayınlanması." />
+
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Button Margin="0,10,0,0" Text="Daha Fazla Bilgi" Command="{Binding OpenWebCommand}" BackgroundColor="{StaticResource Primary}" TextColor="White" />
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

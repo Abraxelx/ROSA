@@ -18,6 +18,7 @@ namespace ROSA.ViewModels
         public ItemsViewModel()
         {
             Title = "BİRİNCİ SÖZ";
+
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 

@@ -17,7 +17,7 @@ namespace ROSA.Views
             Device.BeginInvokeOnMainThread(async() => {
                 var result = await this.DisplayAlert("Uyarı!", "ROSA'dan Çıkmak İstediğinize Emin Misiniz?", "Evet", "Hayır");
                 if (result) await this.Navigation.PushAsync(new TabbedPage(),false);
-                });      
+                });
            return true;
            // return base.OnBackButtonPressed();    
         }

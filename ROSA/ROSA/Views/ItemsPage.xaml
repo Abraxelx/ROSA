@@ -8,7 +8,8 @@
         <ToolbarItem Text="Ekle" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
+                    <On Platform="Android" Value="settingsred.png"/>
+                    <On Platform="IOS" Value="settingsred.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>

@@ -136,6 +136,9 @@
   <ItemGroup>
     <BundleResource Include="Resources\rosa_wallpaper.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settingsred.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\ROSA\ROSA.projitems" Label="Shared" />
 </Project>

@@ -28,10 +28,13 @@
     <item name="colorAccent">#FF4081</item>
   </style>
 
-  <style name="Theme.Splash" parent="android:Theme">
-    <item name="android:windowBackground">@drawable/Rosa_logoLOWER</item>
-    <item name="android:windowNoTitle">true</item>
-  </style>
 
+ <style name="Splash.Theme" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/rosasplashscreen</item>
+    <item name="android:windowNoTitle">true</item>
+   <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
 
 </resources>

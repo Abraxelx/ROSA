@@ -7,19 +7,20 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 using Android.Runtime;
+using Android.Support.V7.App;
 using Android.Views;
 using Android.Widget;
 
 namespace ROSA.Droid
 {
-    [Activity(Theme="@style/Theme.Splash",MainLauncher = true, Label = "ROSA", Icon = "@drawable/Rosa_logoLOWER")]
-    class SplashActivity : Activity
+    [Activity(Label = "ROSA", Icon = "@drawable/icon", Theme = "@style/Splash.Theme", MainLauncher = true, NoHistory = true)]
+    class SplashActivity : AppCompatActivity
     {
-       protected override void OnCreate(Bundle bundle)
+        protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            System.Threading.Thread.Sleep(1500);
-            this.StartActivity(typeof(MainActivity));
+           // System.Threading.Thread.Sleep(1000);
+            StartActivity(typeof(MainActivity));
         }
     }
 }

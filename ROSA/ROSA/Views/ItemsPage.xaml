@@ -5,13 +5,7 @@
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Ekle" Clicked="AddItem_Clicked">
-            <ToolbarItem.Icon>
-                <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="Android" Value="settingsred.png"/>
-                    <On Platform="IOS" Value="settingsred.png"/>
-                </OnPlatform>
-            </ToolbarItem.Icon>
+        <ToolbarItem  Clicked="AddItem_Clicked" Icon="settingsred.png">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>

@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,9 +16,18 @@ namespace ROSA.Views
         {
             Device.BeginInvokeOnMainThread(async() => {
                 var result = await this.DisplayAlert("Uyarı!", "ROSA'dan Çıkmak İstediğinize Emin Misiniz?", "Evet", "Hayır");
-                if (result) await this.Navigation.PushAsync(new TabbedPage(),false);
-                });
-           return true;
+                if (result)
+                {
+#if __ANDROID__
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+
+#endif
+#if __IOS__
+                    Thread.CurrentThread.Abort();
+#endif
+                }
+            });
+           return true; 
            // return base.OnBackButtonPressed();    
         }
 	}

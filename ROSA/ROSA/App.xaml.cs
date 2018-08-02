@@ -2,14 +2,16 @@
 using Xamarin.Forms;
 using ROSA.Views;
 using Xamarin.Forms.Xaml;
+using ROSA.Manager;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace ROSA
 {
 	public partial class App : Application
 	{
-		
-		public App ()
+        public static TopicItemManager TopicManager { get; private set; }
+
+        public App ()
 		{
 			InitializeComponent();
 

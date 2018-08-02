@@ -7,41 +7,39 @@ using Xamarin.Forms;
 
 using ROSA.Models;
 using ROSA.Views;
+using System.Collections.Generic;
 
 namespace ROSA.ViewModels
 {
     public class ItemsViewModel : BaseViewModel
     {
-        public ObservableCollection<Item> Items { get; set; }
+        public ObservableCollection<Topic> Items { get; set; }
+        public List<Topic> ItemTopic { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
         {
             Title = "BİRİNCİ SÖZ";
-
-            Items = new ObservableCollection<Item>();
+            Items = new ObservableCollection<Topic>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Item>(this, "Item Ekle", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, Topic>(this, "Item Ekle", async (obj, item) =>
             {
-                var _item = item as Item;
+                var _item = item as Topic;
                 Items.Add(_item);
-                await DataStore.AddItemAsync(_item);
+                await App.TopicManager.SaveTaskAsync(_item,true);
             });
         }
 
         async Task ExecuteLoadItemsCommand()
         {
-            if (IsBusy)
-                return;
-
-            IsBusy = true;
-
+      
             try
             {
-                Items.Clear();
-                var items = await DataStore.GetItemsAsync(true);
-                foreach (var item in items)
+               
+                ItemTopic = await App.TopicManager.GetTasksAsync();
+
+                foreach (var item in ItemTopic)
                 {
                     Items.Add(item);
                 }

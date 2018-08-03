@@ -9,7 +9,6 @@
     </ContentPage.BindingContext>
     <ContentPage.Resources>
         <ResourceDictionary>
-            <!--Page Level Resources: Compatibile with Xamarin Live Player -->
             <!--Buton Background -->
             <Color x:Key="Primary">#f24721</Color>
             <!--Logo Rengi -->

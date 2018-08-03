@@ -18,8 +18,10 @@ namespace ROSA.Droid
     {
         protected override void OnCreate(Bundle bundle)
         {
+            this.Window.AddFlags(WindowManagerFlags.Fullscreen);
+            this.Window.ClearFlags(WindowManagerFlags.Fullscreen);
             base.OnCreate(bundle);
-           // System.Threading.Thread.Sleep(1000);
+            // System.Threading.Thread.Sleep(1000);
             StartActivity(typeof(MainActivity));
         }
     }

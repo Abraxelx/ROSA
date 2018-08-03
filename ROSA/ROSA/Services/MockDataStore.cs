@@ -10,6 +10,7 @@ namespace ROSA.Services
 {
     public class MockDataStore : IDataStore<Item>
     {
+      //  private const string metin = "Bismillâh her hayrın başıdır.";
         List<Item> items;
 
         public MockDataStore()
@@ -17,9 +18,7 @@ namespace ROSA.Services
             items = new List<Item>();
             var mockItems = new List<Item>
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text =
-                "Bismillâh her hayrın başıdır. Biz dahi başta ona başlarız"
-                , Description="ROSA" },
+               // new Item { Id = Guid.NewGuid().ToString(), Text =  metin, Description="ROSA" },
 
             };
 

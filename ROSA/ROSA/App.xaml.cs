@@ -10,6 +10,7 @@ namespace ROSA
 	public partial class App : Application
 	{
         public static TopicItemManager TopicManager { get; private set; }
+        public static CommentItemManager CommentItemManager { get; internal set; }
 
         public App ()
 		{

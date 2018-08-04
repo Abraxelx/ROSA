@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace ROSA.Services
 {
-    interface ICommentRestService
+    public interface ICommentRestService
     {
          Task<List<Comment>> RefreshDataAsync();
 

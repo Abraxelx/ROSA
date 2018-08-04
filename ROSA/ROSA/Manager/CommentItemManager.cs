@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ROSA.Manager
 {
-    class CommentItemManager
+    public class CommentItemManager
     {
         ICommentRestService commentRestService;
 

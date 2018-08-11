@@ -21,7 +21,7 @@ namespace ROSA.ViewModels
             Items = new ObservableCollection<Topic>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-            MessagingCenter.Subscribe<NewItemPage, Topic>(this, "Item Ekle", async (obj, item) =>
+            MessagingCenter.Subscribe<NewItemPage, Topic>(this, "AddItem", async (obj, item) =>
             {
                 var _item = item as Topic;
                 Items.Add(_item);
@@ -31,10 +31,13 @@ namespace ROSA.ViewModels
 
         async Task ExecuteLoadItemsCommand()
         {
+			 if (IsBusy)
+                return;
+			 IsBusy = true;
       
             try
             {
-               
+               Items.Clear();
                 ItemTopic = await App.TopicManager.GetTasksAsync();
 
                 foreach (var item in ItemTopic)

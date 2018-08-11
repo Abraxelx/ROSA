@@ -24,7 +24,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\ICommentRestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IUserRestService.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataStore.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ITopicRestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TopicRestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />

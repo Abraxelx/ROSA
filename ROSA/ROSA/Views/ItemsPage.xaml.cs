@@ -26,28 +26,26 @@ namespace ROSA.Views
 
         }
 
-        async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
-        {
-            if (!(args.SelectedItem is Item item))
-                return;
-
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-
-            // Manually deselect item.
-            ItemsListView.SelectedItem = null;
-        }
-
         async void AddItem_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
         }
 
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
 
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+
+
+        //Butonun Click ve Press Eventi 
+        private void Btn_Clicked(object sender, EventArgs e)
+        {
+           (sender as Button).Text = "You Clicked";
+            TestLabel.Text = "YouClick"; //TESTLABEL Ögesi Kontrol
+            
+        }
+        private void Btn_Pressed(object sender, EventArgs e)
+        {
+            (sender as Button).Text = "You Pressed";
+            TestLabel.Text = "YouPress";
         }
     }
+
 }

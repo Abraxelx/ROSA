@@ -4,6 +4,10 @@
             xmlns:views="clr-namespace:ROSA.Views"
             x:Class="ROSA.Views.MainPage"
             BarBackgroundColor="#ed1c24">
+
+
+
+
     <TabbedPage.Children>
         <NavigationPage Title="Haftanın Konusu">
             <NavigationPage.Icon>
@@ -51,12 +55,10 @@
         </NavigationPage>
 
 
-
-
-
-
-
-
-
     </TabbedPage.Children>
+
+
 </TabbedPage>
+   
+    
+

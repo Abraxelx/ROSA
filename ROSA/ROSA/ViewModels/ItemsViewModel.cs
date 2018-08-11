@@ -37,11 +37,9 @@ namespace ROSA.ViewModels
       
             try
             {
-<<<<<<< HEAD
+
                Items.Clear();
-                ItemTopic = await App.TopicManager.GetTasksAsync();
-=======
->>>>>>> bb913bbaecfdb3d352565924fec219575c552c26
+               // ItemTopic = await App.TopicManager.GetTasksAsync();
 
                 ItemCommentList = await App.CommentItemManager.GetTasksAsync();
 

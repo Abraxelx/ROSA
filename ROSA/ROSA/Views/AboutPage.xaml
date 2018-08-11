@@ -37,7 +37,7 @@
                             <FormattedString.Spans>
                                 <Span Text="ROSA" FontAttributes="Bold" FontSize="22" />
                                 <Span Text=" " />
-                                <Span Text="0.0.2" ForegroundColor="{StaticResource LightTextColor}" />
+                                <Span Text="0.0.3" ForegroundColor="{StaticResource LightTextColor}" />
                             </FormattedString.Spans>
                         </FormattedString>
                     </Label.FormattedText>

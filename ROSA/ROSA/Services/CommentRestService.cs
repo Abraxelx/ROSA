@@ -8,39 +8,35 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using ROSA.Models;
 
-
-
 namespace ROSA.Services
 {
-    public class TopicRestService : ITopicRestService
+    class CommentRestService : ICommentRestService
     {
         HttpClient client;
 
-        public List<Topic> Items { get; private set; }
+        public List<Comment> Items { get; private set; }
 
 
-        public TopicRestService()
+        public CommentRestService()
         {
             var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
 
-            client = new HttpClient
-            {
-                MaxResponseContentBufferSize = 256000
-            };
+            client = new HttpClient();
+            client.MaxResponseContentBufferSize = 256000;
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
         }
-        
-        public Task DeleteTopicAsync(string id)
+
+        Task ICommentRestService.DeleteCommentAsync(string id)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<List<Topic>> RefreshDataAsync()
+         async Task<List<Comment>> ICommentRestService.RefreshDataAsync()
         {
-            Items = new List<Topic>();
+            Items = new List<Comment>();
 
-            var uri = new Uri(string.Format(Constants.RestTopicUrl, string.Empty));
+            var uri = new Uri(string.Format(Constants.RestCommentUrl, string.Empty));
 
             try
             {
@@ -48,11 +44,11 @@ namespace ROSA.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Items = JsonConvert.DeserializeObject<List<Topic>>(content);
-                    foreach (Topic element in Items)
+                    Items = JsonConvert.DeserializeObject<List<Comment>>(content);
+                    foreach (Comment element in Items)
                     {
 
-                        Debug.WriteLine($"Element #{element.Code}: {element.Title}");
+                        Debug.WriteLine($"Element #{element.Code}: {element.Code}");
                     }
                 }
             }
@@ -62,12 +58,13 @@ namespace ROSA.Services
             }
 
             return Items;
-         
         }
 
-        public async Task SaveTopicAsync(Topic item, bool isNewItem)
+        public async Task SaveCommentAsync(Comment item, bool isNewItem)
         {
-            var uri = new Uri(string.Format(Constants.RestTopicUrl, string.Empty));
+
+       
+            var uri = new Uri(string.Format(Constants.RestCommentUrl, string.Empty));
 
             try
             {
@@ -96,6 +93,4 @@ namespace ROSA.Services
             }
         }
     }
-
-
 }

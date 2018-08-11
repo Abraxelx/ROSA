@@ -12,7 +12,7 @@ namespace ROSA.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         public ObservableCollection<Topic> Items { get; set; }
-        public List<Topic> ItemTopic { get; set; }
+        public List<Comment> ItemCommentList { get; set; }
         public Command LoadItemsCommand { get; set; }
 
         public ItemsViewModel()
@@ -37,12 +37,17 @@ namespace ROSA.ViewModels
       
             try
             {
+<<<<<<< HEAD
                Items.Clear();
                 ItemTopic = await App.TopicManager.GetTasksAsync();
+=======
+>>>>>>> bb913bbaecfdb3d352565924fec219575c552c26
 
-                foreach (var item in ItemTopic)
+                ItemCommentList = await App.CommentItemManager.GetTasksAsync();
+
+                foreach (var item in ItemCommentList)
                 {
-                    Items.Add(item);
+                    ItemCommentList.Add(item);
                 }
             }
             catch (Exception ex)

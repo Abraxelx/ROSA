@@ -39,7 +39,7 @@ namespace ROSA.Views
         {
            (sender as Button).Text = "You Clicked";
          //   TestLabel.Text = "YouClick"; //TESTLABEL Ögesi Kontrol
-            //TestEntry.Text = "Halil";
+            TestEntry.Text = "Halil";
            String topics = await App.TopicManager.GetTasksAsync();
             TestLabel.Text = topics; //web servisden tum konuları getirecek ilk konunun baslıgını eklicek
 

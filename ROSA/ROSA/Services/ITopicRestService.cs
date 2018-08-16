@@ -7,7 +7,7 @@ namespace ROSA.Services
 {
     public interface ITopicRestService
     {
-        Task<List<Topic>> RefreshDataAsync();
+        Task<String> RefreshDataAsync();
 
         Task SaveTopicAsync(Topic item, bool isNewItem);
 

@@ -16,7 +16,7 @@ namespace ROSA.Manager
             topicRestService = service;
         }
 
-        public Task<List<Topic>> GetTasksAsync()
+        public Task<String> GetTasksAsync()
         {
             return topicRestService.RefreshDataAsync();
         }

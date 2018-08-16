@@ -22,8 +22,10 @@ namespace ROSA.Services
             var authData = string.Format("{0}:{1}", Constants.Username, Constants.Password);
             var authHeaderValue = Convert.ToBase64String(Encoding.UTF8.GetBytes(authData));
 
-            client = new HttpClient();
-            client.MaxResponseContentBufferSize = 256000;
+            client = new HttpClient
+            {
+                MaxResponseContentBufferSize = 256000
+            };
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", authHeaderValue);
         }
 

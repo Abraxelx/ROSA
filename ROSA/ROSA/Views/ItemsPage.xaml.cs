@@ -35,16 +35,22 @@ namespace ROSA.Views
 
 
         //Butonun Click ve Press Eventi 
-        private void Btn_Clicked(object sender, EventArgs e)
+        private async void Btn_Clicked(object sender, EventArgs e)
         {
            (sender as Button).Text = "You Clicked";
-            TestLabel.Text = "YouClick"; //TESTLABEL Ögesi Kontrol
-            
+         //   TestLabel.Text = "YouClick"; //TESTLABEL Ögesi Kontrol
+            //TestEntry.Text = "Halil";
+           String topics = await App.TopicManager.GetTasksAsync();
+            TestLabel.Text = topics; //web servisden tum konuları getirecek ilk konunun baslıgını eklicek
+
+
         }
-        private void Btn_Pressed(object sender, EventArgs e)
+        private async void Btn_Pressed(object sender, EventArgs e)
         {
             (sender as Button).Text = "You Pressed";
-            TestLabel.Text = "YouPress";
+            //  TestLabel.Text = "YouPress";
+            String topics = await App.TopicManager.GetTasksAsync();
+            TestLabel.Text = topics; //web servisden tum konuları getirecek ilk konunun baslıgını eklicek
         }
     }
 

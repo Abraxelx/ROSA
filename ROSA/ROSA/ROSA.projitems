@@ -29,6 +29,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\IUserRestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\ITopicRestService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\TopicRestService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Util\JsonUtil.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\AboutViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />

@@ -19,6 +19,7 @@
                     Text="CLICK"
                     Clicked="Btn_Clicked"
                     Pressed="Btn_Pressed"/>
+            <Entry x:Name="TestEntry"/>
         </StackLayout>
             
         

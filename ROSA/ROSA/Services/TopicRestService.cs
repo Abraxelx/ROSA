@@ -6,9 +6,9 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using ROSA.Models;
-
-
+using ROSA.Util;
 
 namespace ROSA.Services
 {
@@ -36,32 +36,38 @@ namespace ROSA.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<Topic>> RefreshDataAsync()
+        public async Task<String> RefreshDataAsync()
         {
             Items = new List<Topic>();
+            // Create the factory
 
             var uri = new Uri(string.Format(Constants.RestTopicUrl, string.Empty));
-
+            Debug.WriteLine(uri);
+            Console.WriteLine(uri);
+            var topicTitle = "";
             try
             {
+               
+               
+            
                 var response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     var content = await response.Content.ReadAsStringAsync();
-                    Items = JsonConvert.DeserializeObject<List<Topic>>(content);
-                    foreach (Topic element in Items)
-                    {
 
-                        Debug.WriteLine($"Element #{element.Code}: {element.Title}");
-                    }
+                    topicTitle = JsonUtil.GetJsonObjectForCode(content, "_embedded", "topic", "title");
+                    
+                    
                 }
+
+
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(@"ERROR {0}", ex.Message);
             }
 
-            return Items;
+            return topicTitle;
          
         }
 

@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using ROSA.Views;
 using Xamarin.Forms.Xaml;
 using ROSA.Manager;
+using ROSA.Services;
 
 [assembly: XamlCompilation (XamlCompilationOptions.Compile)]
 namespace ROSA
@@ -16,8 +17,9 @@ namespace ROSA
 		{
 			InitializeComponent();
 
-
-			MainPage = new MainPage();
+            TopicManager = new TopicItemManager((new TopicRestService()));
+            CommentItemManager = new CommentItemManager((new CommentRestService()));
+            MainPage = new MainPage();
 		}
 
 		protected override void OnStart ()
